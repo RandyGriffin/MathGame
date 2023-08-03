@@ -70,17 +70,73 @@ switch (gameSelected.Trim().ToLower())
 
 void DivisionGame(string message)
 {
-    Console.WriteLine(message);
+    GetDivisionNumbers();
 }
+
+
 
 void MultiplicationGame(string message)
 {
     Console.WriteLine(message);
+
+    var random = new Random();
+
+    var score = 0;
+    int firstNumber;
+    int secondNumber;
+
+    for (int i = 0; i < 5; i++)
+    {
+        firstNumber = random.Next(1, 9);
+        secondNumber = random.Next(1, 9);
+        Console.WriteLine($"{firstNumber} * {secondNumber}");
+        var result = Console.ReadLine();
+
+        if (int.Parse(result) == (firstNumber + secondNumber))
+        {
+            Console.WriteLine("Your answer was correct!");
+            score++;
+        }
+        else
+        {
+            Console.WriteLine("Your answer was incorrect");
+        }
+
+        if (i == 4)
+            Console.WriteLine($"Game over. Your final score is {score}");
+    }
 }
 
 void SubtractionGame(string message)
 {
     Console.WriteLine(message);
+
+    var random = new Random();
+
+    var score = 0;
+    int firstNumber;
+    int secondNumber;
+
+    for (int i = 0; i < 5; i++)
+    {
+        firstNumber = random.Next(1, 9);
+        secondNumber = random.Next(1, 9);
+        Console.WriteLine($"{firstNumber} - {secondNumber}");
+        var result = Console.ReadLine();
+
+        if (int.Parse(result) == (firstNumber + secondNumber))
+        {
+            Console.WriteLine("Your answer was correct!");
+            score++;
+        }
+        else
+        {
+            Console.WriteLine("Your answer was incorrect");
+        }
+
+        if (i == 4)
+            Console.WriteLine($"Game over. Your final score is {score}");
+    }
 }
 
 void AddictionGame(string message) //Methods
@@ -113,5 +169,23 @@ void AddictionGame(string message) //Methods
         if(i == 4)
             Console.WriteLine($"Game over. Your final score is {score}");
     }
+
+
+}
+
+int[] GetDivisionNumbers()
+{
+    var random = new Random();
+    var firstNumber = random.Next(0, 99);
+    var secondNumber = random.Next(0, 99);
+
+    var result = new int[2];
+
+    result[0] = firstNumber;
+    result[1] = secondNumber;
+
+    Console.WriteLine(result);
+
+    return result;
 }
 
