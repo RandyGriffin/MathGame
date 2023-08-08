@@ -12,6 +12,8 @@ namespace MathGame
             {
                 Console.Clear();
                 Console.WriteLine("Hello {0}!, Today is {1} and welcome to a very simple math game!", name, date);
+                Console.WriteLine("Press any key to show menu");
+                Console.ReadLine();
                 Console.WriteLine(@$"Please choose an option from the menu!
 V - View Previous Games
 A -  Addition 

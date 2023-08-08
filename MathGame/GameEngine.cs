@@ -1,4 +1,6 @@
-﻿ namespace MathGame
+﻿using MathGame.Models;
+
+namespace MathGame
 {
     internal class GameEngine
     {
@@ -15,6 +17,8 @@
 
                 Console.WriteLine($"{firstNumber} / {secondNumber}");
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
 
                 if (int.Parse(result) == (firstNumber / secondNumber))
                 {
@@ -37,7 +41,7 @@
 
             }
             Helpers.GetDivisionNumbers();
-            Helpers.AddToHistory(score, "Division");
+            Helpers.AddToHistory(score, GameType.Division);
         }
 
 
@@ -60,6 +64,8 @@
                 Console.WriteLine($"{firstNumber} * {secondNumber}");
                 var result = Console.ReadLine();
 
+                result = Helpers.ValidateResult(result);
+
                 if (int.Parse(result) == (firstNumber + secondNumber))
                 {
                     Console.WriteLine("Your answer was correct!Type any key for the next question");
@@ -75,7 +81,7 @@
                 if (i == 4)
                     Console.WriteLine($"Game over. Your final score is {score}");
             }
-            Helpers.AddToHistory(score, "Multiplication");
+            Helpers.AddToHistory(score, GameType.Subtraction);
         }
 
         internal void SubtractionGame(string message)
@@ -96,6 +102,8 @@
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
                 var result = Console.ReadLine();
 
+                result = Helpers.ValidateResult(result);
+
                 if (int.Parse(result) == (firstNumber + secondNumber))
                 {
                     Console.WriteLine("Your answer was correct!Type any key for the next question");
@@ -111,7 +119,7 @@
                 if (i == 4)
                     Console.WriteLine($"Game over. Your final score is {score}");
             }
-            Helpers.AddToHistory(score, "Subtraction");
+            Helpers.AddToHistory(score, GameType.Subtraction);
         }
 
         internal void AddictionGame(string message) //Methods
@@ -130,7 +138,12 @@
                 firstNumber = random.Next(1, 9);
                 secondNumber = random.Next(1, 9);
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
+
                 var result = Console.ReadLine();
+
+                result = Helpers.ValidateResult(result);
+
+                 
 
                 if (int.Parse(result) == (firstNumber + secondNumber))
                 {
@@ -148,7 +161,7 @@
                     Console.WriteLine($"Game over. Your final score is {score}");
             }
 
-            Helpers.AddToHistory(score, "Addition");
+            Helpers.AddToHistory(score, GameType.Addition);
         }
     }
 }

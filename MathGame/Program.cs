@@ -8,18 +8,11 @@ var menu = new Menu();
 var date = DateTime.Now;
 
 var games = new List<string>();
-string name = GetName();
+string name = Helpers.GetName();
 
 menu.ShowMenu(name, date);
 
-string GetName()
-{
-    Console.WriteLine("Hello, What is your name?");
-    var name = Console.ReadLine();
-    var date = DateTime.Now;
-    return name;
 
-}
 
  
 
